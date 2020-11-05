@@ -1,0 +1,58 @@
+<!-- Estendemos do template base -->
+{% extends "principal/_layouts/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}ADEDONHA{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div	class="container">
+                <div class="card mb-3">
+                    <form  method="post">
+                        {% csrf_token %}
+                        <div	class="card-header">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">Cod. do Jogo:</label>
+                                    {% render_field form.jogo value=jogo class+="form-control" readonly="true" %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                            Participantes
+                            <ol id="lista">
+                                {% for jogador in jogadores%}
+                                    <li>{{jogador.jogador}}</li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Adicionar</label>
+                            </div>
+                            {% render_field form.jogador class+="form-control" %}
+                            <div class="input-group-prepend">
+                                <script language="JavaScript" src="{% static 'principal\js\participantes.js' %}"></script>
+                                <button onclick="adicionar()" class="btn btn-primary" >
+                                    <img src="{% static 'principal/img/inserir.png' %}" alt="Inserir">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="card-header" align="center">
+                        <a id="continuar" href="{% url 'principal:roleta' pk=jogo %}" class="btn btn-outline-primary">
+                            Continuar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

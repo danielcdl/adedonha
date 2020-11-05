@@ -1,0 +1,35 @@
+<!-- Estendemos do template base -->
+{% extends "layouts/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}ADEDONHA{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>Jogo: {{jogo}}</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset>Selecionar TIPO e LETRA</fieldset>
+                {% bootstrap_field form.tipo %}
+                {% bootstrap_label "Letra" %}
+                <input type="text" name="letra" maxlength="1" class="form-control is-valid" placeholder="Letra" title
+                       id="id_letra" _mstplaceholder="59683" readonly>
+                {% buttons %}
+                <a id="selecionar" type="button" class="btn btn-outline-danger">RODAR</a>
+                <button class="btn btn-outline-primary">COMEÇAR</button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script language="JavaScript" src="{% static 'principal/js/roleta.js' %}"></script>
+{% endblock %}

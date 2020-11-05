@@ -1,0 +1,31 @@
+<!-- Estendemos do template base -->
+{% extends "layouts/base.html" %}
+{% load bootstrap4 %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}Registro{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h4>Registrar</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+
+                        {% buttons %}
+                            <button class="btn btn-primary btn-block">Registrar</button>
+                        {% endbuttons %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

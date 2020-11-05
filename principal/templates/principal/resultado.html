@@ -1,0 +1,22 @@
+<!-- Estendemos do template base -->
+{% extends "principal/_layouts/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}ADEDONHA{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div	class="container">
+                    <div class="card mb-3">
+                       RESULTADO
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

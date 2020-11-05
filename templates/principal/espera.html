@@ -1,0 +1,32 @@
+<!-- Estendemos do template base -->
+{% extends "layouts/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}ADEDONHA{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">
+            Participantes Jogos: {{jogo}}
+        </div>
+        <div class="card-body justify-content-md-center">
+            <ul class="list-group">
+                {% for jogador in jogadores %}
+                <li class="list-group-item">{{jogador}}</li>
+                {% endfor %%}
+            </ul>
+        </div>
+        <div class="card-footer">
+            {% buttons %}
+            <a href="/roleta/{{jogo}}" type="button" class="btn btn-primary btn-block"> Começar</a>
+            {% endbuttons %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

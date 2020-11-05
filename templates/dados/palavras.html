@@ -1,0 +1,50 @@
+<!-- Estendemos do template base -->
+{% extends "layouts/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}ADEDONHA{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Dados das Palavras</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <button class="btn btn-primary btn-block">Inserir</button>
+                    </form>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Palavras</th>
+                            <th scope="col"> tipos</th>
+                            <th scope="col">Ação</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for palavra in palavras %}
+                        <tr>
+                            <td>{{palavra}}</td>
+                            <td>{{palavra.tipo}}</td>
+                            <td>
+                                <a href="palavras" class="btn btn-primary btn-block">Palavras</a>
+                                <a href="tipos" class="btn btn-primary btn-block">Tipos</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

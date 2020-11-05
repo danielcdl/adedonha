@@ -1,0 +1,7 @@
+.idea
+adedonha/__pycache__
+adedonha/settings
+contas/__pycache__
+contas/migrations
+principal/__pycache__
+principal/migrations

@@ -1,0 +1,41 @@
+<!-- Estendemos do template base -->
+{% extends "layouts/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}ADEDONHA{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+<div class="col-sm-4">
+    <div class="container">
+        <div class="card mb-3">
+            <div class="card-header">
+                {{tipo}} com letra {{letra}}
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="card-body" align="center">
+                    <h4>{{palavra}}_</h4>
+                    <div class="table">
+                        <td>{% bootstrap_field form.ultima_letra class="btn btn-outline-info" placeholder="Letra" %}
+                        </td>
+                    </div>
+                    <div id="div_tempo" class="card-body">
+                        <input id="tempo" type="button">
+                    </div>
+                    {% buttons %}
+                    <button class="btn btn-outline-primary">ENVIAR</button>
+                    <button class="btn btn-outline-danger">DESCONFIO!</button>
+                    {% endbuttons %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script language="JavaScript" src="{% static 'principal/js/jogo.js' %}">
+{% endblock %}

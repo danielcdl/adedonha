@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<i class="material-icons">add</i>
+<i class="material-icons">on</i>
+ <i class="large material-icons">insert_chart</i>
+ <i class="large material-icons">access_time</i>
+ <i class="large material-icons">add_box</i>
+ <i class="large material-icons">add_circle</i>
+ <i class="large material-icons">alarm_add</i>
+ <i class="large material-icons">arrow_back</i>
+ <i class="large material-icons">build</i>
+ <i class="large material-icons">cached</i>
+ <i class="large material-icons">delete</i>
+ <i class="large material-icons">done</i>
+ <i class="large material-icons">edit</i>
+ <i class="large material-icons">fast_forward</i>
+ <i class="large material-icons">fast_rewind</i>
+ <i class="large material-icons">send</i>
+ <i class="large material-icons">forward_10</i>
+ <i class="large material-icons">add_shopping_cart</i>
+ <i class="large material-icons">power_settings_new</i>
+
+{% with cat=request.GET.ordenar %}
+  04         <button type="submit" class="btn btn-default
+  05          {% if cat == 'preco' %} disabled {% endif %}"
+
+
+                     query = request.GET.get("busca", '')
+  02     ordenar = request.GET.get("ordenar", '')
+  03     if query:
+  04         veiculo = Veiculo.objects.filter(modelo__icontains=query)
+  05     else:
+  06         if ordenar:
+  07             veiculo = Veiculo.objects.all().order_by(ordenar)
+  08         else:
+  09             veiculo = Veiculo.objects.all()
+
+</body>
+</html>
