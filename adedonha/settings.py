@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'adedonha',
     'principal',
     'contas',
-    'bootstrap4',
 ]
 
 MIDDLEWARE = [

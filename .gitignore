@@ -1,6 +1,7 @@
 .idea
+db.sqlite3
 adedonha/__pycache__
-adedonha/settings
+adedonha/settings.py
 contas/__pycache__
 contas/migrations
 principal/__pycache__
