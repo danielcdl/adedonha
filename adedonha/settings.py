@@ -114,7 +114,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = 'C:\PROGRAMAÇÃO EM PYTHON\ADEDONHA\\adedonha\static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), 'static',]
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'

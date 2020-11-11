@@ -1,8 +1,6 @@
 <!-- Estendemos do template base -->
 {% extends "layouts/base.html" %}
-
 {% load static %}
-{% load bootstrap4 %}
 
 <!-- Bloco que define o <title></title> da nossa página -->
 {% block title %}ADEDONHA{% endblock %}
@@ -21,15 +19,11 @@
             {% endif %}
             <form method="post">
                 {% csrf_token %}
-                {% bootstrap_form form %}
-                {% buttons %}
+                {{ form.as_p }}
                 <button class="btn btn-primary btn-block">Entrar</button>
-                {% endbuttons %}
             </form>
             <label _msthash="2221947" _msttexthash="44759">Ou então</label>
-            {% buttons %}
             <a href="novo-jogo" class="btn btn-outline-primary btn-block">Criar novo jogo</a>
-            {% endbuttons %}
         </div>
     </div>
 </div>
