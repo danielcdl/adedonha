@@ -1,29 +1,30 @@
 <!-- Estendemos do template base -->
 {% extends "layouts/base.html" %}
 {% load static %}
-{% load bootstrap4 %}
 
 <!-- Bloco que define o <title></title> da nossa página -->
 {% block title %}Novo jogo{% endblock %}
 
 <!-- Bloco de conteúdo da nossa página -->
 {% block conteudo %}
-<div class="col-sm-4">
-    <div class="card">
-        <div class="card-header">
-            <h4>Iniciar um Jogo</h4>
-        </div>
-        <div class="card-body">
-            <form method="post">
-                {% csrf_token %}
-                {% bootstrap_form form %}
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>Iniciar um Jogo</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_preferencias">Preferências:</label>
+                        <select class="form-control" id="id_preferencias" multiple="" required>
+                        </select>
+                    </div>
 
-                {% buttons %}
-                <button class="btn btn-primary btn-block">Criar novo jogo</button>
-                <a href="/" class="btn btn-outline-primary btn-block">Voltar</a>
-                {% endbuttons %}
-            </form>
+                    <button class="btn btn-primary btn-block">Criar novo jogo</button>
+                    <a href="/" class="btn btn-outline-primary btn-block">Voltar</a>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
