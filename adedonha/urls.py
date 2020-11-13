@@ -22,6 +22,8 @@ app_name = 'adedonha'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('principal.urls', namespace='principal')),
+    path('dados', include('dados.urls', namespace='dados')),
+    path('jogo', include('jogo.urls', namespace='jogo')),
     path('accounts/', include('contas.urls', namespace='contas')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
